@@ -1,4 +1,5 @@
 require('user.plugin')
+require("flutter-tools").setup {}
 
 local config = {
     -- Configure AstroNvim updates
@@ -24,9 +25,15 @@ local config = {
     -- set vim options here (vim.<first_key>.<second_key> =  value)
     options = {
         opt = {
-            relativenumber = true, -- sets vim.opt.relativenumber
+            relativenumber = false, -- sets vim.opt.relativenumber
+            autoindent = true,
+            tabstop = 4,
+            softtabstop = 4,
+            shiftwidth = 4,
         },
         g = {
+            rainbow_active = 1,
+            lsc_auto_map = true,
             mapleader = " ", -- sets vim.g.mapleader
         },
     },
@@ -71,7 +78,7 @@ local config = {
             indent_blankline = true,
             lightspeed = false,
             ["neo-tree"] = true,
-            notify = true,
+            notify = false,
             ["nvim-tree"] = false,
             ["nvim-web-devicons"] = true,
             rainbow = true,
@@ -111,6 +118,8 @@ local config = {
             { 'luisiacc/gruvbox-baby' },
             { "EdenEast/nightfox.nvim" },
             { 'fenetikm/falcon' },
+            { 'yonlu/omni.vim' },
+            { 'simmxns/purpledepth' },
             -- bottom bar
             { 'nvim-lualine/lualine.nvim' },
             -- better neovim swag
@@ -131,8 +140,6 @@ local config = {
             { 'voldikss/vim-floaterm' },
             { 'kdheepak/lazygit.nvim' },
             -- {'wfxr/forgit'},
-            { 'yonlu/omni.vim' },
-            { 'simmxns/purpledepth' },
         },
         -- All other entries override the setup() call for default plugins
         ["null-ls"] = function(config)

@@ -19,14 +19,3 @@ astronvim.conditional_func(astronvim.user_plugin_opts("polish", nil, false))
 if vim.fn.has "nvim-0.8" ~= 1 or vim.version().prerelease then
     vim.schedule(function() astronvim.notify("Unsupported Neovim Version! Please check the requirements", "error") end)
 end
-
-require("flutter-tools").setup {}
-
--- settings tab
-local set = vim.opt -- set options
-set.autoindent = true
-set.tabstop = 4
-set.softtabstop = 4
-set.shiftwidth = 4
-vim.g.rainbow_active = 1
-vim.g.lsc_auto_map = true
