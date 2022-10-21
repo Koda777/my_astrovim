@@ -25,7 +25,7 @@ local config = {
     -- set vim options here (vim.<first_key>.<second_key> =  value)
     options = {
         opt = {
-            relativenumber = false, -- sets vim.opt.relativenumber
+            relativenumber = true, -- sets vim.opt.relativenumber
             autoindent = true,
             tabstop = 4,
             softtabstop = 4,
@@ -135,7 +135,10 @@ local config = {
             { 'frazrepo/vim-rainbow' },
             { 'dart-lang/dart-vim-plugin' },
             -- Dart code
-            { 'akinsho/flutter-tools.nvim' },
+            { 'akinsho/flutter-tools.nvim',
+                config = function()
+                    require("flutter-tools").setup()
+                end },
             { 'Everblush/everblush.nvim', as = 'everblush' },
             { 'voldikss/vim-floaterm' },
             { 'kdheepak/lazygit.nvim' },
