@@ -1,8 +1,7 @@
 require('user.plugin')
 require("flutter-tools").setup {}
 
-local config = {
-    -- Configure AstroNvim updates
+local config = { -- Configure AstroNvim updates
     updater = {
         remote = "origin", -- remote to use
         channel = "nightly", -- "stable" or "nightly"
@@ -21,7 +20,7 @@ local config = {
 
     -- top theme
     -- everblush
-    colorscheme = "purpledepth",
+    colorscheme = "rose-pine",
     -- set vim options here (vim.<first_key>.<second_key> =  value)
     options = {
         opt = {
@@ -126,7 +125,6 @@ local config = {
             { "ntpeters/vim-better-whitespace" },
             { "tpope/vim-commentary" },
             { "tenxsoydev/size-matters.nvim" },
-            -- {"github/copilot.vim"},
             -- autocompletition
             { 'natebosch/vim-lsc' },
             { 'natebosch/vim-lsc-dart' },
@@ -142,7 +140,16 @@ local config = {
             { 'Everblush/everblush.nvim', as = 'everblush' },
             { 'voldikss/vim-floaterm' },
             { 'kdheepak/lazygit.nvim' },
+            { 'rose-pine/neovim' },
+            -- rust plugin
+            { 'rust-lang/rust.vim' },
+
             -- {'wfxr/forgit'},
+            -- Dismis
+            -- motion plugin
+            { 'rhysd/clever-f.vim' },
+            -- HTML completition
+            { 'othree/html5.vim' },
         },
         -- All other entries override the setup() call for default plugins
         ["null-ls"] = function(config)
@@ -268,7 +275,13 @@ local config = {
         -- first key is the mode
         n = {
             -- second key is the lefthand side of the map
-            ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
+            -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
+            ["<leader><cr>"] = { "i<cr><esc>" },
+        },
+        i = {
+            -- ["<C-s>"] = { "<esc>:w!<cr>", desc = "Save File" },
+            -- ["<S-tab>"] = { "//t" }, don't work
+
         },
         t = {
             -- setting a mapping to false will disable it
