@@ -18,9 +18,10 @@ local config = { -- Configure AstroNvim updates
         -- },
     },
 
-    -- top theme
+    -- top them
     -- everblush
-    colorscheme = "rose-pine",
+    -- gruvbox
+    colorscheme = "gruvbox",
     -- set vim options here (vim.<first_key>.<second_key> =  value)
     options = {
         opt = {
@@ -29,10 +30,15 @@ local config = { -- Configure AstroNvim updates
             tabstop = 4,
             softtabstop = 4,
             shiftwidth = 4,
+            termguicolors = true,
+
         },
         g = {
             rainbow_active = 1,
             lsc_auto_map = true,
+            epi_mode_emacs = 0,
+            epi_mode_auto = 0,
+
             mapleader = " ", -- sets vim.g.mapleader
         },
     },
@@ -110,7 +116,7 @@ local config = { -- Configure AstroNvim updates
             --     require("lsp_signature").setup()
             --   end
             -- },
-            -- Scheme neovim
+            -- Theme neovim
             { 'folke/tokyonight.nvim' },
             { 'ellisonleao/gruvbox.nvim' },
             { 'bluz71/vim-nightfly-guicolors' },
@@ -118,38 +124,50 @@ local config = { -- Configure AstroNvim updates
             { "EdenEast/nightfox.nvim" },
             { 'fenetikm/falcon' },
             { 'yonlu/omni.vim' },
+            { 'katawful/kat.nvim' },
             { 'simmxns/purpledepth' },
+            { 'Everblush/everblush.vim' },
+            { 'rose-pine/neovim' },
+            -------------
             -- bottom bar
             { 'nvim-lualine/lualine.nvim' },
             -- better neovim swag
+            -- screen saver nvim
+            { 'folke/drop.nvim',
+                event = "VimEnter",
+                config = function()
+                    math.randomseed(os.time())
+                    local theme = ({ "stars", "snow", "xmas" })[math.random(1, 3)]
+                    require("drop").setup { theme = theme }
+                end, },
             { "ntpeters/vim-better-whitespace" },
             { "tpope/vim-commentary" },
             { "tenxsoydev/size-matters.nvim" },
-            -- autocompletition
-            { 'natebosch/vim-lsc' },
-            { 'natebosch/vim-lsc-dart' },
-            { "vimwiki/vimwiki" },
-            { 'katawful/kat.nvim' },
+            -------------
+            -- configuration epitech
+            -- { 'LeBarbu/vim-epitech' },
+            { 'Nero-F/vim-tek-header' },
+            -------------
             { 'frazrepo/vim-rainbow' },
-            { 'dart-lang/dart-vim-plugin' },
-            -- Dart code
+            -- Flutter tools
             { 'akinsho/flutter-tools.nvim',
                 config = function()
                     require("flutter-tools").setup()
                 end },
-            { 'Everblush/everblush.nvim', as = 'everblush' },
+            -------------
+            -- autocompletition
             { 'voldikss/vim-floaterm' },
+            -- tools
             { 'kdheepak/lazygit.nvim' },
-            { 'rose-pine/neovim' },
-            -- rust plugin
-            { 'rust-lang/rust.vim' },
-
-            -- {'wfxr/forgit'},
-            -- Dismis
             -- motion plugin
             { 'rhysd/clever-f.vim' },
-            -- HTML completition
-            { 'othree/html5.vim' },
+            -------------
+            --Auxiliaire
+            { 'brenoprata10/nvim-highlight-colors',
+                config = function()
+                    require("nvim-highlight-colors").setup()
+                end },
+            -------------
         },
         -- All other entries override the setup() call for default plugins
         ["null-ls"] = function(config)
